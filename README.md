@@ -1,29 +1,24 @@
-🛠️ WordPress Post Maintenance Plugin
+##🛠️ WordPress Post Maintenance Plugin
 The WordPress Post Maintenance Plugin is designed to help you manage and maintain your WordPress posts efficiently. With features like scheduled post scans, automatic cleanup of outdated content, and email notifications, this plugin ensures that your site remains optimized and up-to-date. It's perfect for site administrators who want to automate routine maintenance tasks.
 
-Features
-Automated Post Scanning: Schedule post scans to identify and handle outdated or underperforming content.
-Customizable Post Maintenance: Set specific thresholds for post age, engagement, and more to tailor the maintenance process to your needs.
-Email Notifications: Receive email alerts when certain maintenance actions are performed.
-Dashboard Notifications: Stay informed with real-time notifications in the WordPress dashboard.
-Easy Integration: Works seamlessly with the WordPress REST API for advanced customization.
-Installation
+#Features
+> Automated Post Scanning: Schedule post scans to identify and handle outdated or underperforming content.
+> Customizable Post Maintenance: Set specific thresholds for post age, engagement, and more to tailor the maintenance process to your needs.
+> Email Notifications: Receive email alerts when certain maintenance actions are performed.
+> Dashboard Notifications: Stay informed with real-time notifications in the WordPress dashboard.
+> Easy Integration: Works seamlessly with the WordPress REST API for advanced customization.
+
+#Installation
 From the WordPress Admin Dashboard
 Download the Plugin:
 
 Download the plugin's .zip file from the GitHub repository.
-Upload the Plugin:
-
-Navigate to Plugins > Add New in your WordPress dashboard.
-Click Upload Plugin and choose the downloaded .zip file.
-Click Install Now and then Activate the plugin.
-Manually via FTP
-Download the Plugin:
-
-Download the plugin's .zip file from the GitHub repository.
-Extract the Plugin:
-
-Extract the .zip file on your local machine.
+> Upload the Plugin:Navigate to Plugins > Add New in your WordPress dashboard.
+> Click Upload Plugin and choose the downloaded .zip file.
+> Click Install Now and then Activate the plugin.
+> Manually via FTP
+> Download the Plugin:Download the plugin's .zip file from the GitHub repository.
+>Extract the Plugin:Extract the .zip file on your local machine.
 Upload to WordPress:
 
 Use an FTP client to upload the extracted plugin folder to your WordPress installation under the wp-content/plugins/ directory.
