@@ -1,180 +1,70 @@
-# Post-Maintenance-Plugin
-Efficiently manage and maintain your WordPress posts with the Post Maintenance Plugin. This plugin provides REST API endpoints to scan, update, and manage posts based on custom criteria such as post type, age, and engagement. Ensure your content is always fresh and relevant by automating routine maintenance tasks.
+# WordPress Post Maintenance Plugin
+The WordPress Post Maintenance Plugin is designed to help you manage and maintain your WordPress posts efficiently. With features like scheduled post scans, automatic cleanup of outdated content, and email notifications, this plugin ensures that your site remains optimized and up-to-date. Perfect for site administrators who want to automate routine maintenance tasks.
 
-# Post Maintenance Plugin
-
-The Post Maintenance Plugin for WordPress allows you to automate the management and maintenance of your posts. It provides REST API endpoints to scan posts, update metadata, send notifications, and perform other maintenance tasks based on custom criteria. Keep your content up-to-date and improve the overall quality of your website with this powerful tool.
-
-## Features
-
-- **Scan Posts**: Automatically scan posts by type, age, and engagement to apply maintenance rules.
-- **Update Metadata**: Track the last scan date of each post with custom metadata.
-- **Email Notifications**: Send notifications when certain criteria are met during a scan.
-- **Dashboard Alerts**: Display maintenance notifications directly in the WordPress admin dashboard.
-
-## Installation
-
-Follow these steps to install the Post Maintenance Plugin on your WordPress site:
-
-1. **Download the Plugin**: Clone this repository or download the ZIP file.
-
-   ```bash
-   git clone https://github.com/your-username/post-maintenance-plugin.git
+Features
+Automated Post Scanning: Schedule post scans to identify and handle outdated or underperforming content.
+Customizable Post Maintenance: Set specific thresholds for post age, engagement, and more to tailor the maintenance process to your needs.
+Email Notifications: Receive email alerts when certain maintenance actions are performed.
+Dashboard Notifications: Stay informed with real-time notifications in the WordPress dashboard.
+Easy Integration: Works seamlessly with the WordPress REST API for advanced customization.
+Installation
+From the WordPress Admin Dashboard:
+Download the Plugin:
+Download the plugin's .zip file from the GitHub repository.
 Upload the Plugin:
-
-Navigate to your WordPress dashboard.
-Go to Plugins > Add New.
-Click on Upload Plugin and select the ZIP file if you downloaded it.
+Navigate to Plugins > Add New in your WordPress dashboard.
+Click Upload Plugin and choose the downloaded .zip file.
+Click Install Now and then Activate the plugin.
+Manually via FTP:
+Download the Plugin:
+Download the plugin's .zip file from the GitHub repository.
+Extract the Plugin:
+Extract the .zip file on your local machine.
+Upload to WordPress:
+Use an FTP client to upload the extracted plugin folder to your WordPress installation under the wp-content/plugins/ directory.
 Activate the Plugin:
-
-After uploading, click on Activate Plugin to enable the Post Maintenance Plugin.
-Configure the Plugin:
-
-Once activated, you can start using the provided REST API endpoints to scan and maintain posts. No additional configuration is needed unless you want to customize the behavior.
+Go to the Plugins page in your WordPress admin dashboard and activate the plugin.
 Usage
-REST API Endpoints
-The plugin provides a REST API endpoint to trigger the post maintenance tasks:
+1. Configure Post Maintenance
+After activating the plugin, navigate to the Post Maintenance settings page in your WordPress admin dashboard.
+Configure your desired post maintenance settings, including post types, age thresholds, engagement thresholds, and email notifications.
+2. Manually Run Maintenance Tasks
+You can manually trigger post maintenance tasks by navigating to the Post Maintenance settings page and clicking the Run Maintenance button.
+3. Setting Up a Cron Job
+To automate the maintenance process, you can set up a cron job to trigger the maintenance task at regular intervals.
 
-Endpoint: /ltg/v1/maintenance/scan-posts
-Method: POST
-Parameters:
-post_types (array): Specify the post types to scan (e.g., ['post', 'page']).
-categories (array): Optionally filter posts by categories.
-age_threshold (int): The minimum age (in days) of posts to include in the scan.
-engagement_threshold (int): The minimum engagement level (e.g., comments, views) to include in the scan.
-Example Request:
-bash
-Copy code
-curl -X POST \
-  'http://your-site.com/wp-json/ltg/v1/maintenance/scan-posts' \
-  -d 'post_types[]=post' \
-  -d 'age_threshold=30' \
-  -d 'engagement_threshold=5'
-Testing the Plugin
-To ensure the Post Maintenance Plugin is working as expected, you can run unit tests provided with the plugin.
+Cron Job Command:
 
-Prerequisites:
-PHPUnit should be installed on your system.
-Running Tests:
-Navigate to the Plugin Directory:
+Add the following cron job to your server to run the post maintenance every day at midnight:
 
 bash
 Copy code
-cd wp-content/plugins/post-maintenance-plugin
-Run PHPUnit:
+0 0 * * * wget -q -O - "http://yourwebsite.com/wp-json/ltg/v1/maintenance/scan-posts" >/dev/null 2>&1
+Replace http://yourwebsite.com with your actual website URL.
 
-bash
-Copy code
-./vendor/bin/phpunit
-Filter Specific Tests:
+Running Tests
+Prerequisites
+Ensure that PHPUnit is installed and properly configured in your development environment.
 
-To run a specific test method:
+Running Unit Tests
+The plugin includes unit tests to ensure that all features work as expected. You can run these tests using the following command:
 
 bash
 Copy code
 ./vendor/bin/phpunit --filter test_scan_posts_updates_post_meta
-Test Summary:
-test_scan_posts_updates_post_meta: Verifies that the ltg_test_last_scan meta field is correctly updated after a scan.
-test_scan_posts_no_posts: Ensures proper handling when no posts meet the criteria.
-test_email_notification_sent: Checks if the email notification is sent when the criteria are met.
-test_dashboard_notification_set: Verifies that a dashboard notification is set after the scan.
-Contributing
-We welcome contributions to enhance the functionality and usability of this plugin. Please fork the repository and submit pull requests for any improvements.
+This command runs the specific test for verifying that the post maintenance feature updates the ltg_test_last_scan post meta correctly. You can run other tests by specifying the appropriate filter.
 
-License
-This plugin is open-source and distributed under the MIT License.
-
-
-GitHub Repository Heading
-Post Maintenance Plugin
-
-Efficiently manage and maintain your WordPress posts with the Post Maintenance Plugin. This plugin provides REST API endpoints to scan, update, and manage posts based on custom criteria such as post type, age, and engagement. Ensure your content is always fresh and relevant by automating routine maintenance tasks.
-
-README.md
-markdown
-Copy code
-# Post Maintenance Plugin
-
-The Post Maintenance Plugin for WordPress allows you to automate the management and maintenance of your posts. It provides REST API endpoints to scan posts, update metadata, send notifications, and perform other maintenance tasks based on custom criteria. Keep your content up-to-date and improve the overall quality of your website with this powerful tool.
-
-## Features
-
-- **Scan Posts**: Automatically scan posts by type, age, and engagement to apply maintenance rules.
-- **Update Metadata**: Track the last scan date of each post with custom metadata.
-- **Email Notifications**: Send notifications when certain criteria are met during a scan.
-- **Dashboard Alerts**: Display maintenance notifications directly in the WordPress admin dashboard.
-
-## Installation
-
-Follow these steps to install the Post Maintenance Plugin on your WordPress site:
-
-1. **Download the Plugin**: Clone this repository or download the ZIP file.
-
-   ```bash
-   git clone https://github.com/your-username/post-maintenance-plugin.git
-Upload the Plugin:
-
-Navigate to your WordPress dashboard.
-Go to Plugins > Add New.
-Click on Upload Plugin and select the ZIP file if you downloaded it.
-Activate the Plugin:
-
-After uploading, click on Activate Plugin to enable the Post Maintenance Plugin.
-Configure the Plugin:
-
-Once activated, you can start using the provided REST API endpoints to scan and maintain posts. No additional configuration is needed unless you want to customize the behavior.
-Usage
-REST API Endpoints
-The plugin provides a REST API endpoint to trigger the post maintenance tasks:
-
-Endpoint: /ltg/v1/maintenance/scan-posts
-Method: POST
-Parameters:
-post_types (array): Specify the post types to scan (e.g., ['post', 'page']).
-categories (array): Optionally filter posts by categories.
-age_threshold (int): The minimum age (in days) of posts to include in the scan.
-engagement_threshold (int): The minimum engagement level (e.g., comments, views) to include in the scan.
-Example Request:
-bash
-Copy code
-curl -X POST \
-  'http://your-site.com/wp-json/ltg/v1/maintenance/scan-posts' \
-  -d 'post_types[]=post' \
-  -d 'age_threshold=30' \
-  -d 'engagement_threshold=5'
-Testing the Plugin
-To ensure the Post Maintenance Plugin is working as expected, you can run unit tests provided with the plugin.
-
-Prerequisites:
-PHPUnit should be installed on your system.
-Running Tests:
-Navigate to the Plugin Directory:
-
-bash
-Copy code
-cd wp-content/plugins/post-maintenance-plugin
-Run PHPUnit:
+Running All Tests
+To run all the tests in the plugin:
 
 bash
 Copy code
 ./vendor/bin/phpunit
-Filter Specific Tests:
+Troubleshooting Tests
+If you encounter issues with tests, try running them individually to isolate problems, as described above. Make sure your test environment closely mirrors your production environment.
 
-To run a specific test method:
-
-bash
-Copy code
-./vendor/bin/phpunit --filter test_scan_posts_updates_post_meta
-Test Summary:
-test_scan_posts_updates_post_meta: Verifies that the ltg_test_last_scan meta field is correctly updated after a scan.
-test_scan_posts_no_posts: Ensures proper handling when no posts meet the criteria.
-test_email_notification_sent: Checks if the email notification is sent when the criteria are met.
-test_dashboard_notification_set: Verifies that a dashboard notification is set after the scan.
 Contributing
-We welcome contributions to enhance the functionality and usability of this plugin. Please fork the repository and submit pull requests for any improvements.
-
-License
-This plugin is open-source and distributed under the MIT License.
+We welcome contributions! Please feel free to submit issues, fork the repository, and send pull requests.
 
 Support
 For any questions or support, please open an issue on GitHub or contact us at labannjoroge8292@gmail.com
