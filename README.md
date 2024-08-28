@@ -54,7 +54,6 @@ The plugin includes unit tests to ensure that all features work as expected. You
 
 ```bash
 ./vendor/bin/phpunit --filter test_scan_posts_updates_post_meta
-
 This command runs the specific test for verifying that the post maintenance feature updates the ltg_test_last_scan post meta correctly. You can run other tests by specifying the appropriate filter.
 
 Running All Tests
@@ -62,7 +61,6 @@ To run all the tests in the plugin:
 
 ```bash
 ./vendor/bin/phpunit
-
 Troubleshooting Tests
 If you encounter issues with tests, try running them individually to isolate problems, as described above. Make sure your test environment closely mirrors your production environment.
 
