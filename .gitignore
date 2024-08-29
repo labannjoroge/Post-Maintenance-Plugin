@@ -1,0 +1,16 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore vendor directory
+vendor/
+
+# Ignore lock files
+package-lock.json
+composer.lock
+
+# Ignore other potentially unwanted files
+.DS_Store
+*.log
+.env
+.idea/
+assets/

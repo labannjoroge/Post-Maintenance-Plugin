@@ -1,0 +1,41 @@
+{
+	"name": "labanthegreat/wp-posts-maintenance",
+	"description": "A plugin to scan and maintain metadata for WordPress posts.",
+	"type": "project",
+	"config": {
+		"platform": {
+			"php": "7.4"
+		},
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"homepage": "https://labanthegreat.dev/",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Incsub",
+			"homepage": "https://labanthegreat.dev/"
+		}
+	],
+	"require": {
+		"php": ">=7.4",
+		"wp-cli/wp-cli-bundle": "*"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"phpunit/phpunit": "^9",
+		"yoast/phpunit-polyfills": "^2.0"
+	},
+
+	"autoload": {
+		"classmap": [
+			"core/",
+			"app/"
+		]
+	}
+
+	
+}
